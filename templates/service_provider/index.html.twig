@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ServiceProvider index{% endblock %}
+
+{% block body %}
+    <h1>ServiceProvider index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>BusinessName</th>
+                <th>Adress</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for service_provider in service_providers %}
+            <tr>
+                <td>{{ service_provider.id }}</td>
+                <td>{{ service_provider.businessName }}</td>
+                <td>{{ service_provider.adress }}</td>
+                <td>{{ service_provider.description }}</td>
+                <td>
+                    <a href="{{ path('app_service_provider_show', {'id': service_provider.id}) }}">show</a>
+                    <a href="{{ path('app_service_provider_edit', {'id': service_provider.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_service_provider_new') }}">Create new</a>
+{% endblock %}

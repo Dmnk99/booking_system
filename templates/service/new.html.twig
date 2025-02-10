@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %} {% block title %}New Service{% endblock %} {%
+block body %}
+<div class="create-service-container">
+    <h1>Create New Service</h1>
+
+    <!-- Formulár pre vytvorenie novej služby -->
+    <div class="form-wrapper">
+        {{ form_start(form, {'attr': {'class': 'service-form'}}) }}
+
+        <!-- Renderovanie všetkých polí formulára -->
+        {{ form_widget(form) }}
+
+        <!-- Tlačidlo na odoslanie formulára -->
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+    <!-- Tlačidlo pre návrat na zoznam -->
+    <div class="back-link">
+        <a href="{{ path('app_service_index') }}" class="btn-secondary"
+            >Back to List</a
+        >
+    </div>
+</div>
+{% endblock %}

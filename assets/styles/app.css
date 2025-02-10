@@ -1,0 +1,467 @@
+/* Základné nastavenia */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7fa;
+}
+
+/* Navigácia */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-light {
+    background-color: white !important;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #333 !important;
+}
+
+.nav-link {
+    color: #555 !important;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #007bff !important;
+}
+
+/* Auth tlačidlá */
+.login-register {
+    margin-left: auto;
+}
+
+.login-register .btn {
+    margin-left: 10px;
+    border-radius: 20px;
+    padding: 8px 20px;
+}
+
+/* Hlavný obsah */
+.container {
+    padding: 2rem;
+}
+
+.welcome-message {
+    text-align: center;
+    padding: 3rem 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin: 2rem 0;
+}
+
+.welcome-message h1 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+/* Tlačidlá */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Responzívne nastavenia */
+@media (max-width: 768px) {
+    .navbar-nav {
+        padding: 1rem 0;
+    }
+
+    .login-register {
+        margin: 1rem 0;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* Register Page Styles */
+.register-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.register-container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.register-form .form-group {
+    margin-bottom: 15px;
+}
+
+.register-form .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.register-form .form-group input[type='email'],
+.register-form .form-group input[type='password'],
+.register-form .form-group input[type='text'] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.register-form .form-checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.register-form .form-checkbox input {
+    margin-right: 10px;
+}
+
+.register-form .btn {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.register-form .btn:hover {
+    background: #0056b3;
+}
+
+.carousel-inner img {
+    height: 200px; /* Alebo iná výška podľa potreby */
+    object-fit: cover;
+}
+
+/* Services Page Styles */
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 2rem;
+}
+
+.service-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.service-card h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin: 15px 0;
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    color: #666;
+    padding: 0 15px 15px;
+}
+
+.service-card .btn {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.service-card .btn:hover {
+    background: #0056b3;
+}
+
+/* Bookings Page Styles */
+.bookings-container {
+    max-width: 500px;
+    margin: 50px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bookings-container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.booking-form .form-group {
+    margin-bottom: 15px;
+}
+
+.booking-form .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.booking-form .form-group input,
+.booking-form .form-group select,
+.booking-form .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.booking-form .form-group textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.booking-form .btn {
+    width: 100%;
+    padding: 10px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.booking-form .btn:hover {
+    background: #218838;
+}
+
+/* Responzívne nastavenia */
+@media (max-width: 768px) {
+    .services-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-card {
+        width: 90%;
+    }
+}
+
+/* Základné nastavenia formulára */
+.create-service-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.create-service-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Základné nastavenia pre formulárovú skupinu */
+.service-form .form-group {
+    margin-bottom: 20px; /* Medzera medzi skupinami */
+    display: flex;
+    flex-direction: column; /* Umiestnenie vstupu pod štítok */
+}
+
+/* Štýly pre štítky */
+.service-form .form-group label {
+    font-weight: bold;
+    margin-bottom: 10px; /* Väčšia medzera pod textom štítku */
+    color: #444;
+}
+
+/* Vstupné polia */
+.service-form .form-group input,
+.service-form .form-group textarea,
+.service-form .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    background: #f9f9f9;
+    box-sizing: border-box;
+}
+
+.service-form .form-group input:focus,
+.service-form .form-group textarea:focus,
+.service-form .form-group select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+.service-form button {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+}
+
+.service-form button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.back-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-link .btn-secondary {
+    padding: 10px 15px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.back-link .btn-secondary:hover {
+    background-color: #5a6268;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+/* Hlavný kontajner pre formulár */
+.create-service-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Nadpis formulára */
+.create-service-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Štýly pre jednotlivé skupiny prvkov formulára */
+.service-form .form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Štýly pre štítky */
+.service-form .form-group label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+/* Štýly pre vstupné polia, textové pole a výberové prvky */
+.service-form .form-group input,
+.service-form .form-group textarea,
+.service-form .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    background: #f9f9f9;
+    box-sizing: border-box;
+}
+
+/* Štýly pre zamerané vstupy (focus) */
+.service-form .form-group input:focus,
+.service-form .form-group textarea:focus,
+.service-form .form-group select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+/* Štýly pre tlačidlo Save */
+.service-form .form-group button {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover efekt pre tlačidlo Save */
+.service-form .form-group button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Návratové tlačidlo */
+.back-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Štýly pre návratové tlačidlo (Back to List) */
+.back-link .btn-secondary {
+    padding: 10px 15px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover efekt pre návratové tlačidlo */
+.back-link .btn-secondary:hover {
+    background-color: #5a6268;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
