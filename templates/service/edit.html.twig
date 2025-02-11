@@ -1,13 +1,20 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %} {% block title %}Edit Service{% endblock %} {%
+block body %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Edit Service</h1>
 
-{% block title %}Edit Service{% endblock %}
+    <div class="card shadow-sm p-4">
+        <!-- Include the form partial with Bootstrap styling -->
+        {{ include('service/_form.html.twig', { button_label: 'Update' }) }}
 
-{% block body %}
-    <h1>Edit Service</h1>
+        <div class="d-flex justify-content-between mt-4">
+            <a href="{{ path('app_service_index') }}" class="btn btn-secondary"
+                >Back to List</a
+            >
 
-    {{ include('service/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_service_index') }}">back to list</a>
-
-    {{ include('service/_delete_form.html.twig') }}
+            <!-- Include the delete form -->
+            {{ include('service/_delete_form.html.twig') }}
+        </div>
+    </div>
+</div>
 {% endblock %}
