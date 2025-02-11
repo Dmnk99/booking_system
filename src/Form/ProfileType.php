@@ -6,6 +6,8 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class ProfileType extends AbstractType
 {
@@ -13,11 +15,23 @@ class ProfileType extends AbstractType
     {
         $builder
             ->add('email')
-            ->add('roles')
-            ->add('password')
             ->add('firstName')
             ->add('lastName')
             ->add('phoneNumber')
+            ->add('roles', ChoiceType::class, [
+                'choices' => [
+                    'User' => 'ROLE_USER',
+                    'Admin' => 'ROLE_ADMIN',
+                ],
+                'multiple' => true,
+                'expanded' => true,
+                'disabled' => true, // Ak chceš, aby sa nedali meniť
+            ])
+            ->add('password', PasswordType::class, [
+                'mapped' => false, // Neviaže sa priamo na entitu User
+                'required' => false, // Nemusí byť vyplnené
+                'attr' => ['class' => 'form-control'], // …
+            ])
         ;
     }
 

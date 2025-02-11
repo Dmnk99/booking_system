@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %} {% block title %}Upraviť profil{% endblock %} {%
+block body %}
+<div class="container mt-4">
+    <h1>Upraviť profil</h1>
+
+    {{ form_start(form) }}
+
+    <div class="mb-3">
+        {{ form_label(form.email, 'E-mail') }}
+        {{
+            form_widget(form.email, {
+                attr: { class: 'form-control', readonly: 'readonly' }
+            })
+        }}
+        <small class="text-muted">E-mail nie je možné meniť.</small>
+    </div>
+
+    <div class="mb-3">
+        {{ form_row(form.firstName, { attr: { class: 'form-control' } }) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_row(form.lastName, { attr: { class: 'form-control' } }) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_row(form.phoneNumber, { attr: { class: 'form-control' } }) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_row(form.password, { attr: { class: 'form-control' } }) }}
+        <small class="text-muted">Vyplňte iba v prípade zmeny hesla.</small>
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.roles, 'Role') }}
+        {{ form_widget(form.roles, { attr: { class: 'form-check' } }) }}
+        <small class="text-muted">Role sú spravované administrátorom.</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Uložiť zmeny</button>
+    <a href="{{ path('app_profile') }}" class="btn btn-secondary"
+        >Späť na profil</a
+    >
+
+    {{ form_end(form) }}
+</div>
+{% endblock %}

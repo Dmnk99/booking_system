@@ -1,5 +1,12 @@
 {% extends 'base.html.twig' %} {% block body %}
-<h1>Profil používateľa {{ app.user.email }}</h1>
+
+<h1>
+    Profil používateľa {% if app.user.firstName %}
+    {{ app.user.firstName }} {{ app.user.lastName }}
+    {% else %}
+    {{ app.user.email }}
+    {% endif %}
+</h1>
 
 <a href="{{ path('profile_edit') }}">Profile Settings</a>
 

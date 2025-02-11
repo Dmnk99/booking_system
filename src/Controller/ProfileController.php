@@ -9,6 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\ProfileType;
 use App\Repository\ServiceRepository;
+use App\Entity\User;
 class ProfileController extends AbstractController
 {
     #[Route('/profile', name: 'app_profile')]
@@ -24,7 +25,7 @@ class ProfileController extends AbstractController
             'services' => $services, // Poslanie správnych dát do šablóny
         ]);
     }
-    #[Route('/edit', name: 'profile_edit')]
+    #[Route('/profile/edit', name: 'profile_edit')]
     public function edit(Request $request, EntityManagerInterface $em): Response
     {
         $user = $this->getUser();
@@ -33,11 +34,12 @@ class ProfileController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em->flush();
-            return $this->redirectToRoute('profile_index');
+            return $this->redirectToRoute('app_profile');
         }
 
         return $this->render('profile/edit.html.twig', [
             'form' => $form->createView(),
+            'user' => $user,
         ]);
     }
 }
