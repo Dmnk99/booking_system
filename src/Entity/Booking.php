@@ -21,7 +21,7 @@ class Booking
     private ?\DateTimeInterface $endTime = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $status = null;
+    private ?string $status = "Pending";
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $notes = null;

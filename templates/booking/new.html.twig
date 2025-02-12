@@ -1,11 +1,56 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %} {% block stylesheets %}
+{{ parent() }}
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+/>
+<style>
+    /* Prispôsobenie vzhľadu */
+    .datepicker {
+        font-size: 1rem;
+        border-radius: 8px;
+        padding: 10px;
+    }
 
-{% block title %}New Booking{% endblock %}
+    .datepicker-dropdown {
+        border-radius: 8px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
-{% block body %}
-    <h1>Create new Booking</h1>
+    .datepicker table {
+        width: 100%;
+    }
 
-    {{ include('booking/_form.html.twig') }}
+    .datepicker td,
+    .datepicker th {
+        padding: 8px;
+        text-align: center;
+    }
 
-    <a href="{{ path('app_booking_index') }}">back to list</a>
-{% endblock %}
+    .datepicker .active {
+        background-color: #007bff !important;
+        color: white !important;
+        border-radius: 6px;
+    }
+</style>
+{% endblock %} {% block title %}New Booking{% endblock %} {% block body %}
+<h1>Create new Booking</h1>
+
+{{ include('booking/_form.html.twig') }}
+
+<a href="{{ path('app_booking_index') }}">back to list</a>
+
+{% block javascripts %}
+{{ parent() }}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // you may need to change this code if you are not using Bootstrap Datepicker
+        $('.js-datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+        });
+    });
+</script>
+{% endblock %} {% endblock %}

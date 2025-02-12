@@ -26,8 +26,11 @@ class BookingController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $booking = new Booking();
-        $form = $this->createForm(BookingType::class, $booking);
+        $form = $this->createForm(BookingType::class, $booking,[
+            'user' => $this->getUser(),
+        ]);
         $form->handleRequest($request);
+            
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($booking);
@@ -53,7 +56,9 @@ class BookingController extends AbstractController
     #[Route('/{id}/edit', name: 'app_booking_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Booking $booking, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(BookingType::class, $booking);
+        $form = $this->createForm(BookingType::class, $booking, [
+            'user' => $this->getUser(), 
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

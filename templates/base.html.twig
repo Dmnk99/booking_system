@@ -58,10 +58,10 @@
                     <ul class="navbar-nav">
                         {% if app.user %}
                         <li class="nav-item">
-                            <a
-                                class="nav-link"
-                                href="{{ path('app_profile') }}"
-                                >{{ app.user.email }}</a
+                            <a class="nav-link" href="{{ path('app_profile') }}"
+                                >{% if app.user.firstName %}{{
+                                    app.user.firstName
+                                }}{% else %}{{ app.user.email }}{% endif %}</a
                             >
                         </li>
                         <li class="nav-item">
