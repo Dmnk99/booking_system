@@ -32,15 +32,6 @@ class BookingType extends AbstractType
                 'html5' => false,
                 'attr' => ['class' => 'js-datepicker'],
             ])
-            ->add('status', ChoiceType::class,[
-                'choices' => [
-                    'Pending' => 'Pending',
-                    'Confirmed' => 'Confirmed',
-                    'Canceled' => 'Canceled',
-                    'Completed' => 'Completed',
-                ],
-                'disabled' =>!$isAdmin,
-            ])
             ->add('notes')
             ->add('createdAt')
             ->add('user', EntityType::class, [
@@ -50,9 +41,20 @@ class BookingType extends AbstractType
             ->add('service', EntityType::class, [
                 'class' => Service::class,
 'choice_label' => 'id',
-            ])
-        ;
+            ]);
+        if ($isAdmin) {
+            $builder
+            ->add('status', ChoiceType::class,[
+                'choices' => [
+                    'Pending' => 'Pending',
+                    'Confirmed' => 'Confirmed',
+                    'Canceled' => 'Canceled',
+                    'Completed' => 'Completed',
+                ],
+                'disabled' =>!$isAdmin,
+            ]);
     }
+}
 
     public function configureOptions(OptionsResolver $resolver): void
     {

@@ -14,11 +14,15 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/booking')]
 class BookingController extends AbstractController
 {
+
+
     #[Route('/', name: 'app_booking_index', methods: ['GET'])]
     public function index(BookingRepository $bookingRepository): Response
     {
+        $user = $this->getUser();
         return $this->render('booking/index.html.twig', [
             'bookings' => $bookingRepository->findAll(),
+            'user' => $user,
         ]);
     }
 
@@ -78,6 +82,29 @@ class BookingController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete'.$booking->getId(), $request->request->get('_token'))) {
             $entityManager->remove($booking);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('app_booking_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/{id}/confirm', name: 'app_booking_confirm', methods: ['POST','GET'])]
+    public function confirm(Request $request, Booking $booking, EntityManagerInterface $entityManager): Response
+    {
+        dump($request->request->get('_token'));
+        if ($this->isCsrfTokenValid('confirm'.$booking->getId(), $request->request->get('_token'))) {
+            $booking->setStatus('Confirmed');
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('app_booking_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/{id}/cancel', name: 'app_booking_cancel', methods: ['POST','GET'])]
+    public function cancel(Request $request, Booking $booking, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('cancel'.$booking->getId(), $request->request->get('_token'))) {
+            $booking->setStatus('Canceled');
             $entityManager->flush();
         }
 

@@ -7,20 +7,23 @@
             rel="icon"
             href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>"
         />
+
         {% block stylesheets %}
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-        />
         {{
-            encore_entry_link_tags('styles')
+            encore_entry_link_tags('app')
         }}
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        />
         {% endblock %}
     </head>
-    <body class="{% block body_class %}{% endblock %}">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <body class="bg-light {% block body_class %}{% endblock %}">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ path('app_home') }}"
+                <a
+                    class="navbar-brand fw-bold text-dark"
+                    href="{{ path('app_home') }}"
                     >Booking System</a
                 >
                 <button
@@ -35,49 +38,55 @@
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a
-                                class="nav-link"
+                                class="nav-link text-dark"
                                 href="{{ path('app_service_index') }}"
                                 >Services</a
                             >
                         </li>
                         <li class="nav-item">
                             <a
-                                class="nav-link"
-                                href="{{ path('app_service_provider_index') }}"
-                                >Providers</a
+                                class="nav-link text-dark"
+                                href="{{ path('app_booking_index') }}"
+                                >Bookings</a
                             >
                         </li>
                         <li class="nav-item">
                             <a
-                                class="nav-link"
-                                href="{{ path('app_booking_index') }}"
-                                >Bookings</a
+                                class="nav-link text-dark"
+                                href="{{ path('app_service_provider_index') }}"
+                                >Providers</a
                             >
                         </li>
                     </ul>
                     <ul class="navbar-nav">
                         {% if app.user %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_profile') }}"
+                            <a
+                                class="nav-link text-dark"
+                                href="{{ path('app_profile') }}"
                                 >{% if app.user.firstName %}{{
                                     app.user.firstName
                                 }}{% else %}{{ app.user.email }}{% endif %}</a
                             >
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_logout') }}"
+                            <a
+                                class="nav-link text-dark"
+                                href="{{ path('app_logout') }}"
                                 >Logout</a
                             >
                         </li>
                         {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_login') }}"
+                            <a
+                                class="nav-link text-dark"
+                                href="{{ path('app_login') }}"
                                 >Login</a
                             >
                         </li>
                         <li class="nav-item">
                             <a
-                                class="nav-link"
+                                class="nav-link text-dark"
                                 href="{{ path('app_register') }}"
                                 >Register</a
                             >
@@ -98,6 +107,7 @@
         {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
         {% endblock %}
     </body>
 </html>
